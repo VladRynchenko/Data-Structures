@@ -6,9 +6,9 @@ class OrdArray {
 
     static OrdArray merge(OrdArray b, OrdArray c) {
         int size = b.size() + c.size();
-        OrdArray array = new OrdArray(200);
+        OrdArray array = new OrdArray(size);
 
-        int cI = 0, bI = 0;
+        int cI = 0;
 
         for (int i = 0; i < b.size(); i++) {
             for (int j = cI; j < c.size(); j++) {
@@ -67,31 +67,8 @@ class OrdArray {
 
 
     public void insert(long value) {
-        int j = 0;
 
-        int lowerBound = 0;
-        int upperBound = nElems - 1;
-        int curIn;
-
-//        while (true) {
-//            curIn = lowerBound + (upperBound - lowerBound) / 2;
-//            if (lowerBound > upperBound) {
-//                j = lowerBound;
-//                break;
-//            }
-//            else if(lowerBound < upperBound){
-//                j = lowerBound;
-//                break;
-//            }
-//
-//                else {
-//                if (a[curIn] > value) {
-//                    lowerBound = curIn + 1;
-//                } else {
-//                    upperBound = curIn - 1;
-//            }
-
-        j = binaryInsert(value);
+        int j = binaryInsert(value);
         int k;
 
         for (k = nElems; k > j; k--) {
