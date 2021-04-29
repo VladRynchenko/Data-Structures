@@ -27,8 +27,6 @@ public class HighArrayApp {
         arr.delete(99);
         arr.display();
 
-
-
         Random random = new Random();
 
         for (int i = 0; i < 10; i++){

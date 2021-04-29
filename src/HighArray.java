@@ -54,12 +54,12 @@ public class HighArray {
                 }
                 if (a[i] == a[j + 1]) {
                     counterDups++;
-                    a[j+1] = 0;
+                    a[j+1] = -1;
                 }
             }
         }
         for (int i = 0; i < counterDups; i++) {
-            delete(0);
+            delete(-1);
         }
     }
 
