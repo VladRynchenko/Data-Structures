@@ -22,33 +22,29 @@ public class ArrayIns {
     }
 
     public void insertionSort() {
-
         for (int out = 1; out < nElems; out++) {
             long temp = a[out];
             int in = out;
             while (in > 0 && temp <= a[in - 1]) {
-                if (temp == a[in - 1]) temp = -1;
+                if (temp == a[in - 1]) {
+                    temp = -1;
+                }
                 a[in] = a[in - 1];
                 in--;
             }
             a[in] = temp;
         }
-        display();
-        while (a[0] < 0) {
-            delete(a[0]);
-        }
+        int countDups = 0;
+        for (int i = 0; a[i] < 0; i++)
+            countDups++;
+        delete(countDups);
+
     }
 
-    public boolean delete(long value) {
-        int j;
-        for (j = 0; j < nElems; j++)
-            if (value == a[j]) break;
-        if (j == nElems) return false;
-        else {
-            for (int k = j; k < nElems; k++) a[k] = a[k + 1];
-            nElems--;
-            return true;
-        }
+    public boolean delete(int value) {
+        for (int k = 0; k < nElems; k++) a[k] = a[k + value];
+        nElems -= value;
+        return true;
     }
 
     public void median() {
