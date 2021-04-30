@@ -22,7 +22,9 @@ public class ArrayIns {
     }
 
     public void insertionSort() {
+        int countDups = 0;
         for (int out = 1; out < nElems; out++) {
+
             long temp = a[out];
             int in = out;
             while (in > 0 && temp <= a[in - 1]) {
@@ -33,10 +35,10 @@ public class ArrayIns {
                 in--;
             }
             a[in] = temp;
+            if(a[in] == -1){
+                countDups++;
+            }
         }
-        int countDups = 0;
-        for (int i = 0; a[i] < 0; i++)
-            countDups++;
         delete(countDups);
 
     }
