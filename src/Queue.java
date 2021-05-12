@@ -48,7 +48,23 @@ class Queue {
     {
         return (nItems == maxSize);
     }
+    public void display() {
 
+        if (isEmpty()) {
+            System.out.println("Queue is Empty!");
+        } else if (rear < front) {
+            for (int i = front; i < maxSize; i++) {
+                System.out.println(queArray[i]);
+            }
+            for (int i = 0; i <= rear; i++) {
+                System.out.println(queArray[i]);
+            }
+        } else if (front >= rear) {
+            for (int i = front; i <= rear; i++) {
+                System.out.println(queArray[i]);
+            }
+        }
+    }
     public int size() // number of items in queue
     {
         return nItems;
