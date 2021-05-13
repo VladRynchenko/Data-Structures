@@ -5,6 +5,7 @@ public class Deque {
     private int head;
     private int tail;
 
+
     public Deque(int s) {
         maxSize = s; // set array size
         stackArray = new long[maxSize]; // create array
@@ -13,10 +14,10 @@ public class Deque {
     }
 
     public void pushTop(long j) {
-        if (head == (tail + 1) % maxSize){
+        if (isFull()) {
             return;
         }
-        head= (head - 1 + maxSize) % maxSize;
+        head = (head - 1 + maxSize) % maxSize;
         stackArray[head] = j; // increment top, insert item }
     }
 
@@ -30,6 +31,9 @@ public class Deque {
     }
 
     public long peekTop() {
+        if (isEmpty()) {
+            return -1;
+        }
         return stackArray[head];
     }
 
@@ -38,25 +42,28 @@ public class Deque {
     }
 
     public void pushBack(long j) {
-        if (head == (tail + 1) % maxSize){
+        if (isFull()) {
             return;
         }
         stackArray[tail++] = j;
     }
 
     public long popBack() {
-        if (isEmpty()){
+        if (isEmpty()) {
             return -1;
         }
         tail = (tail - 1 + maxSize) % maxSize;
-        return stackArray[--tail];
+        return stackArray[tail];
     }
 
     public long peekBack() {
+        if (isEmpty()) {
+            return -1;
+        }
         return stackArray[tail];
     }
 
     public boolean isFull() {
-        return (head == maxSize - 1);
+        return (head == (tail + 1) % maxSize);
     }
 }

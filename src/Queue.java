@@ -1,4 +1,6 @@
-class Queue {
+import java.util.Stack;
+
+class Queue{
     private int maxSize;
     private long[] queArray;
     private int front;
