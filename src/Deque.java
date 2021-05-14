@@ -10,7 +10,7 @@ public class Deque {
         maxSize = s; // set array size
         stackArray = new long[maxSize]; // create array
         head = 0;
-        tail = maxSize;
+        tail = maxSize - 1;
     }
 
     void pushTop(int l) {
