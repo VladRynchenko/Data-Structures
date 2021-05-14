@@ -10,60 +10,55 @@ public class Deque {
         maxSize = s; // set array size
         stackArray = new long[maxSize]; // create array
         head = 0;
-        tail = 0;
+        tail = maxSize;
     }
 
-    public void pushTop(long j) {
-        if (isFull()) {
+    void pushTop(int l) {
+        if (full()) {
             return;
         }
-        head = (head - 1 + maxSize) % maxSize;
-        stackArray[head] = j; // increment top, insert item }
+        head = (head + maxSize) % maxSize;
+        stackArray[head++] = l;
     }
 
-    public long popTop() {
-        if (isEmpty()) {
+    long popTop() {
+        if (empty()) {
             return -1;
         }
-        long ret = stackArray[head];
-        head = (head + 1) % maxSize;
-        return ret;
+        head = (head + maxSize) % maxSize;
+        return stackArray[head--];
     }
 
-    public long peekTop() {
-        if (isEmpty()) {
+    void pushBack(int l) {
+        if (full()) {
+            return;
+        }
+        tail = (tail - 1 + maxSize) % maxSize;
+        stackArray[tail] = l;
+    }
+
+    long popBack() {
+        if (empty()) {
             return -1;
         }
-        return stackArray[head];
+        tail = (tail + maxSize) % maxSize;
+        return stackArray[tail++];
     }
 
-    public boolean isEmpty() {
+    boolean empty() {
+        return (head == 0 || tail == maxSize);
+    }
+
+    boolean full() {
         return (head == tail);
     }
 
-    public void pushBack(long j) {
-        if (isFull()) {
-            return;
-        }
-        stackArray[tail++] = j;
+    long peekTop() {
+        return stackArray[head];
     }
 
-    public long popBack() {
-        if (isEmpty()) {
-            return -1;
-        }
-        tail = (tail - 1 + maxSize) % maxSize;
+    long peekBack() {
         return stackArray[tail];
     }
 
-    public long peekBack() {
-        if (isEmpty()) {
-            return -1;
-        }
-        return stackArray[tail];
-    }
-
-    public boolean isFull() {
-        return (head == (tail + 1) % maxSize);
-    }
 }
