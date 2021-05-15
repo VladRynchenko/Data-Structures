@@ -14,7 +14,6 @@ public class Deque {
     }
 
     void pushTop(int l) {
-
         head = (head + maxSize) % maxSize;
         stackArray[head++] = l;
 
@@ -34,7 +33,6 @@ public class Deque {
     }
 
     void pushBack(int l) {
-
         tail = (tail + maxSize) % maxSize;
         stackArray[tail--] = l;
     }
@@ -43,18 +41,14 @@ public class Deque {
         return ((tail - head + maxSize) % maxSize == maxSize - 1);
     }
 
-    boolean full() {
-        return ((tail + head) % maxSize == (maxSize - 1) % maxSize && !empty());
-    }
-
     long peekTop() {
-        int peeker = (head - 1 + maxSize) % maxSize;
-        return (stackArray[peeker]);
+        int picker = (head - 1 + maxSize) % maxSize;
+        return (stackArray[picker]);
     }
 
     long peekBack() {
-        int peeker = (tail + 1 + maxSize) % maxSize;
-        return stackArray[peeker];
+        int picker = (tail + 1 + maxSize) % maxSize;
+        return stackArray[picker];
     }
 
 }
