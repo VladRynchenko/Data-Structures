@@ -14,31 +14,45 @@ public class Deque {
     }
 
     void pushTop(int l) {
+        if (full()) {
+            return;
+        }
         head = (head + maxSize) % maxSize;
         stackArray[head++] = l;
+
     }
 
     long popTop() {
+        if (empty()) {
+            return -1;
+        }
         head = (head - 1 + maxSize) % maxSize;
         return stackArray[head];
+
     }
 
     long popBack() {
+        if (empty()) {
+            return -1;
+        }
         tail = (tail + 1 + maxSize) % maxSize;
         return stackArray[tail];
     }
 
     void pushBack(int l) {
+        if (full()) {
+            return;
+        }
         tail = (tail + maxSize) % maxSize;
         stackArray[tail--] = l;
     }
 
     boolean empty() {
-        return (tail + 1 == head);
+        return ((tail - head + maxSize) % maxSize == maxSize - 1);
     }
 
     boolean full() {
-        return (head == tail - 1);
+        return ((tail + head) % maxSize == maxSize - 1 && !empty());
     }
 
 }
