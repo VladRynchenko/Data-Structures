@@ -32,7 +32,7 @@ public class QueueApp {
         deq.pushTop(1);
         deq.pushTop(3);
         deq.pushBack(4);
-        deq.pushBack(2);
+//        deq.pushBack(2);
 
         System.out.println("Empty" + deq.empty());
         System.out.println("Full" + deq.full());
@@ -41,7 +41,7 @@ public class QueueApp {
             System.out.print(deq.peekTop() + " ");
             System.out.print(deq.peekBack() + " ");
 
-            System.out.print(deq.popTop());
+            System.out.print(deq.popBack());
             System.out.println("Empty" + deq.empty());
         }
 

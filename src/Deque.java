@@ -40,7 +40,7 @@ public class Deque {
         }
         count--;
         long ret = stackArray[tail];
-        tail = (tail + maxSize) % maxSize;
+        tail = (tail + 1 + maxSize) % maxSize;
         return ret;
     }
 
