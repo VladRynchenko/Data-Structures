@@ -45,6 +45,10 @@ public class QueueApp {
             System.out.println("Empty" + deq.empty());
         }
 
+        Deque deque = new Deque(1);
+        deque.pushTop(1);
+        System.out.println(deque.peekTop());
+
 
 //
 //        System.out.print(deq.popTop());
