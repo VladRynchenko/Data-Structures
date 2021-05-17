@@ -59,14 +59,12 @@ public class Deque {
 
     long peekTop() {
         if (empty()) return -1;
-        int picker = (head - 1 + maxSize) % maxSize;
-        return (stackArray[picker]);
+        return (stackArray[head]);
     }
 
     long peekBack() {
         if (empty()) return -1;
-        int picker = (tail + 1 + maxSize) % maxSize;
-        return stackArray[picker];
+        return stackArray[tail];
     }
 
 }
