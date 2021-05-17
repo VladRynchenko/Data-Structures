@@ -26,7 +26,7 @@ public class QueueApp {
         System.out.println(" ");
 
 
-        Deque deq = new Deque(5);
+        Deque deq = new Deque(4);
 //        System.out.println("Empty" + deq.empty());
 
         deq.pushTop(1);
@@ -34,7 +34,8 @@ public class QueueApp {
         deq.pushBack(4);
         deq.pushBack(2);
 
-        System.out.print("Empty" + deq.empty());
+        System.out.println("Empty" + deq.empty());
+        System.out.println("Full" + deq.full());
 
         for (int i = 0; i < 5; i++) {
             System.out.print(deq.peekTop() + " ");
@@ -43,6 +44,8 @@ public class QueueApp {
             System.out.print(deq.popTop());
             System.out.println("Empty" + deq.empty());
         }
+
+
 //
 //        System.out.print(deq.popTop());
 //        System.out.print(deq.empty());
