@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Random;
 
 public class DequeApp {
@@ -22,12 +23,14 @@ public class DequeApp {
         System.out.print(deq1.peekBack());
         System.out.println(deq1.peekTop());
 
-        for (int i = 0; i < 5; i++) {
-            int value = random.nextInt(10);
-            System.out.print(value);
-            deque.pushTop(value);
-        }
-        System.out.println("");
+
+        System.out.println(12345);
+        deque.pushTop(1);
+        deque.pushTop(2);
+        deque.pushTop(3);
+        deque.pushTop(4);
+
+//        System.out.print("PopTop" + deque.popBack() + " ");
 
         for (int i = 0; i < 5; i++) {
             System.out.print("PopTop" + deque.popTop() + " ");
@@ -37,12 +40,14 @@ public class DequeApp {
         System.out.println("");
         deque.clean();
 
-        for (int i = 0; i < 5; i++) {
-            int value = random.nextInt(10);
-            System.out.print(value);
-            deque.pushTop(value);
-        }
+        deque.pushTop(6);
+        deque.pushTop(7);
+        deque.pushTop(8);
+        deque.pushTop(9);
+        deque.pushTop(10);
+        System.out.print(678910);
         System.out.println("");
+
 
         for (int i = 0; i < 5; i++) {
             System.out.print("PopBack" + deque.popBack() + " ");
