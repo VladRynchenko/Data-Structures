@@ -11,7 +11,7 @@ public class Deque {
         maxSize = s; // set array size
         stackArray = new long[maxSize]; // create array
         head = -1;
-        tail = maxSize;
+        tail = -1;
         count = 0;
     }
 
@@ -29,7 +29,6 @@ public class Deque {
             return -1;
         }
         if (head == -1) head = 0;
-
         count--;
         long ret = stackArray[head];
         head = (head - 1 + maxSize) % maxSize;
@@ -40,9 +39,8 @@ public class Deque {
         if (empty()) {
             return -1;
         }
-        if (tail == maxSize) tail = 0;
+        if (tail == -1) tail = maxSize -1;
         count--;
-
         long ret = stackArray[tail];
         tail = (tail + 1 + maxSize) % maxSize;
         return ret;
@@ -56,7 +54,7 @@ public class Deque {
     }
 
     boolean empty() {
-        return (count == 0);
+        return (head == tail);
     }
 
     boolean full() {
@@ -71,7 +69,7 @@ public class Deque {
 
     long peekBack() {
         if (empty()) return -1;
-        if (tail == maxSize) tail = maxSize -1;
+        if (tail == -1) tail = maxSize -1;
         return (stackArray[tail]);
     }
 

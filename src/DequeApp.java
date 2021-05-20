@@ -5,7 +5,7 @@ public class DequeApp {
 
     public static void main(String[] args) {
 
-        Deque deque = new Deque(5);
+        DequeCustom deque = new DequeCustom(5);
         Random random = new Random();
 
 
@@ -24,35 +24,32 @@ public class DequeApp {
         System.out.println(deq1.peekTop());
 
 
-        System.out.println(12345);
+        System.out.println(123);
         deque.pushTop(1);
         deque.pushTop(2);
         deque.pushTop(3);
-        deque.pushTop(4);
-
-//        System.out.print("PopTop" + deque.popBack() + " ");
 
         for (int i = 0; i < 5; i++) {
             System.out.print("PopTop" + deque.popTop() + " ");
-            System.out.print("PeekTop" + deque.peekTop() + " ");
-            System.out.println("PeekBack" + deque.peekBack() + " ");
+            System.out.print("PeekTop" + deque.getTop() + " ");
+            System.out.println("PeekBack" + deque.getBack() + " ");
         }
         System.out.println("");
         deque.clean();
 
-        deque.pushTop(6);
-        deque.pushTop(7);
-        deque.pushTop(8);
-        deque.pushTop(9);
-        deque.pushTop(10);
-        System.out.print(678910);
+        deque.pushBack(6);
+        deque.pushBack(7);
+        deque.pushBack(8);
+        deque.pushBack(9);
+
+        System.out.print(6789);
         System.out.println("");
 
 
         for (int i = 0; i < 5; i++) {
             System.out.print("PopBack" + deque.popBack() + " ");
-            System.out.print("PeekTop" + deque.peekTop() + " ");
-            System.out.println("PeekBack" + deque.peekBack() + " ");
+            System.out.print("PeekTop" + deque.getTop() + " ");
+            System.out.println("PeekBack" + deque.getBack() + " ");
         }
         System.out.println("");
         deque.clean();
@@ -70,17 +67,17 @@ public class DequeApp {
         for (int i = 0; i < 3; i++) {
             System.out.print("PopBack" + deque.popBack() + " ");
             System.out.print("PopTop" + deque.popTop() + " ");
-            System.out.println("PeekBack" + deque.peekBack());
+            System.out.println("PeekBack" + deque.getBack());
         }
         System.out.println("");
         deque.clean();
 
-        Deque deque1 = new Deque(5);
-        deque1.pushBack(2);
-        deque1.pushBack(1);
+        DequeCustom customDeq = new DequeCustom(1);
+        customDeq.pushBack(1);
 
-        System.out.println(deque1.popBack());
-        System.out.println(deque1.popBack());
+        System.out.print(customDeq.getTop());
+        System.out.print(customDeq.getBack());
+        System.out.println(customDeq.popTop());
     }
 
 }
