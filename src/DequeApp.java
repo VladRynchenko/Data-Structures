@@ -1,11 +1,10 @@
-import java.util.ArrayDeque;
 import java.util.Random;
 
 public class DequeApp {
 
     public static void main(String[] args) {
 
-        DequeCustom deque = new DequeCustom(5);
+        CustomDeque deque = new CustomDeque(5);
         Random random = new Random();
 
 
@@ -72,7 +71,7 @@ public class DequeApp {
         System.out.println("");
         deque.clean();
 
-        DequeCustom customDeq = new DequeCustom(1);
+        CustomDeque customDeq = new CustomDeque(1);
         customDeq.pushBack(1);
 
         System.out.print(customDeq.getTop());

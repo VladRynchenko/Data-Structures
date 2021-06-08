@@ -1,4 +1,4 @@
-class DequeCustom(sizeArray: Int) {
+class CustomDeque(sizeArray: Int) {
 
     private var array: Array<Long> = Array(sizeArray) { 0 }
     private var head = 0
