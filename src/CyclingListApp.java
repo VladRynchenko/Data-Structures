@@ -5,6 +5,9 @@ public class CyclingListApp {
             cycleList.insertFirst(i);
         }
         cycleList.displayList();
+        System.out.print(cycleList.deleteFirst());
+        cycleList.displayList();
+        cycleList.displayList();
         System.out.print(cycleList.search(3));
         System.out.print(cycleList.search(15));
     }
