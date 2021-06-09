@@ -26,10 +26,10 @@ class CyclingList {
 
     }
 
-    public Link deleteFirst() {
+    public long deleteFirst() {
         Link temp = current;
         current = current.next;
-        return temp;
+        return temp.dData;
     }
 
     public boolean search(long d) {
@@ -38,9 +38,6 @@ class CyclingList {
             if (current.dData == d) return true;
             current = current.next; // move to next link }
             System.out.print(" ");
-            if (current.next == null) {
-                current.next = this.current;
-            }
         }
         return false;
     }
@@ -52,6 +49,6 @@ class CyclingList {
             current.displayLink();
             current = current.next; // move to next link }
             System.out.print(" ");
-        }while (current != this.head.next);
+        } while (current != this.head.next);
     }
 }
