@@ -1,11 +1,11 @@
-public class SortedList {
-    public Link first;
+public class SortedListExtended extends SortedList {
+    private Link first;
 
-    public SortedList() {
+    public SortedListExtended() {
         first = null;
     }
 
-    public SortedList(Link[] linkArr) {
+    public SortedListExtended(Link[] linkArr) {
         first = null; // initialize list
         for (int j = 0; j < linkArr.length; j++) // copy array
             insert(linkArr[j]); // to list }
@@ -14,7 +14,7 @@ public class SortedList {
     public void insert(Link k) {
         Link previous = null;
         Link current = first;
-        while (current != null && k.dData > current.dData) {
+        while (current != null && k.priority > current.priority) {
             previous = current;
             current = current.next;
         }

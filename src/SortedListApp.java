@@ -11,9 +11,9 @@ public class SortedListApp {
         for (int j = 0; j < size; j++)
             System.out.print(linkArray[j].dData + " ");
         System.out.println("");
-        SortedList theSortedList = new SortedList(linkArray);
+        PriorityQueue thePriorityList = new PriorityQueue(linkArray);
         for (int j = 0; j < size; j++) // links from list to array
-            linkArray[j] = theSortedList.remove();
+            linkArray[j] = thePriorityList.pull();
 // display array contents
         System.out.print("Sorted Array: ");
         for (int j = 0; j < size; j++)
