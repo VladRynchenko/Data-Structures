@@ -24,8 +24,9 @@ public class SortedListExtended extends SortedList {
         k.next = current;
     }
 
-    @Override
     public Link remove() {
-        return super.remove();
+        Link temp = first;
+        first = first.next;
+        return temp;
     }
 }
