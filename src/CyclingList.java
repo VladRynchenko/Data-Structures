@@ -29,6 +29,7 @@ class CyclingList {
     public long deleteFirst() {
         Link temp = current;
         current = current.next;
+        head.next = current;
         return temp.dData;
     }
 

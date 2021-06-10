@@ -10,6 +10,8 @@ public class CyclingListApp {
         System.out.print(cycleList.deleteFirst());
         System.out.print(cycleList.deleteFirst());
         System.out.print(cycleList.deleteFirst());
+        System.out.print(cycleList.deleteFirst());
+        System.out.print(cycleList.deleteFirst());
         cycleList.displayList();
         cycleList.displayList();
         System.out.print(cycleList.search(3));
