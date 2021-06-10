@@ -10,7 +10,7 @@ class CyclingList {
 
     public boolean isEmpty() // true if list is empty
     {
-        return (current == null);
+        return (current == current.next);
     }
 
     public void insertFirst(long dd) { // make new link
