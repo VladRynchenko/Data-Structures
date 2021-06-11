@@ -30,6 +30,7 @@ class CyclingList {
         if (head.next == head) {
             temp = head;
             head = null;
+            current = null;
             return temp.dData;
         }
         current = current.next;
