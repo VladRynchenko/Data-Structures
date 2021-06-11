@@ -1,6 +1,8 @@
 public class CyclingListApp {
     public static void main(String[] args) throws Throwable {
         CyclingList cycleList = new CyclingList();
+        System.out.println(cycleList.isEmpty());
+
         for (int i = 0; i < 6; i++) {
             cycleList.insertFirst(i);
         }
