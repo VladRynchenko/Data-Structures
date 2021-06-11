@@ -10,27 +10,32 @@ class CyclingList {
 
     public boolean isEmpty() // true if list is empty
     {
-        return (current == current.next);
+        return (head == null || current == current.next);
     }
 
     public void insertFirst(long dd) { // make new link
         Link newLink = new Link(dd);
         newLink.next = current;
-        if (current != null && head == null) {
+        if (isEmpty()) {
             head = current;
         }
         if (head != null) {
             head.next = newLink;
         }
         current = newLink;
-
     }
 
     public long deleteFirst() {
+
+        if (isEmpty()) {
+            head = null;
+            return -1;
+        }
         Link temp = current;
         current = current.next;
         head.next = current;
         return temp.dData;
+
     }
 
     public boolean search(long d) {
