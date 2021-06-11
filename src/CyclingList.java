@@ -26,6 +26,7 @@ class CyclingList {
     }
 
     public long deleteFirst() {
+        if (isEmpty()) return -1;
         Link temp = current;
         if (head.next == head) {
             temp = head;
@@ -39,6 +40,7 @@ class CyclingList {
     }
 
     public boolean search(long d) {
+        if (isEmpty()) return false;
         Link current = this.current;
         while (current.next != this.current) {
             if (current.dData == d) return true;
@@ -49,6 +51,10 @@ class CyclingList {
     }
 
     public void displayList() {
+        if (isEmpty()) {
+            System.out.print("List empty");
+            return;
+        }
         System.out.print("List (first-->last): ");
         Link current = this.current;
         do {
