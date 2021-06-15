@@ -1,5 +1,5 @@
 public class SortedList {
-    public Link first;
+    protected Link first;
 
     public SortedList() {
         first = null;
@@ -11,7 +11,22 @@ public class SortedList {
             insert(linkArr[j]); // to list }
     }
 
-    public void insert(Link k) {
+    public void priorityInsert(Link k) {
+        Link previous = null;
+        Link current = first;
+        while (current != null && k.priority > current.priority) {
+            previous = current;
+            current = current.next;
+        }
+        if (previous == null) {
+            first = k;
+        } else previous.next = k;
+        k.next = current;
+
+
+    }
+
+    private void insert(Link k){
         Link previous = null;
         Link current = first;
         while (current != null && k.dData > current.dData) {

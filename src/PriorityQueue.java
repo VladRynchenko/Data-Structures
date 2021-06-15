@@ -1,20 +1,21 @@
 public class PriorityQueue extends SortedList {
-    SortedListExtended sortedList;
 
     public PriorityQueue(Link[] linkArray) {
-        sortedList = new SortedListExtended(linkArray);
+        first = null; // initialize list
+        for (int j = 0; j < linkArray.length; j++) // copy array
+            priorityInsert(linkArray[j]); // to list }
     }
 
     public PriorityQueue() {
-        sortedList = new SortedListExtended();
+        super();
     }
 
     public void insert(Link k, long priority) {
         k.priority = priority;
-        sortedList.insert(k);
+        super.priorityInsert(k);
     }
 
     public Link pull() {
-        return sortedList.remove();
+        return super.remove();
     }
 }
