@@ -1,5 +1,3 @@
-import java.io.Serial;
-
 public class Recursion {
     public static void main(String[] args) {
         System.out.println(power(2, 3));
