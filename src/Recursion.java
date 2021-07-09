@@ -5,7 +5,7 @@ public class Recursion {
     }
 
     static int power(int number, int power) {
-        if (power != 0) {
+        if (power != 1) {
             return (number * power(number, power - 1));
         }
         return number;
