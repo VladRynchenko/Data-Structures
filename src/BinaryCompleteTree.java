@@ -1,85 +1,55 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
-class StringTree {
+public class BinaryCompleteTree {
     private NodeTree root;
+    private NodeTree[] nodeTree;
 
-    public StringTree(String dataString) {
-        root = null;
-        NodeTree[] arrayNode = new NodeTree[dataString.length()];
-        for (int i = 0; i < dataString.length(); i++) {
-            arrayNode[i] = new NodeTree();
-            arrayNode[i].data = String.valueOf(dataString.charAt(i));
+    public BinaryCompleteTree(String userString) {
+        nodeTree = new NodeTree[userString.length() + 1];
+        userString = " " + userString;
+        for (int i = 0; i < userString.length(); i++) {
+            System.out.print(userString.charAt(i));
+            nodeTree[i] = new NodeTree();
+            nodeTree[i].data = String.valueOf(userString.charAt(i));
         }
 
-        NodeTree parent = new NodeTree();
+        NodeTree parent;
+        parent = nodeTree[1];
+        addChildren(parent, 1);
 
-        parent.data = "+";
-        parent.leftChild = arrayNode[0];
-        parent.rightChild = arrayNode[1];
+//        parent.leftChild = nodeTree[1];
+//        parent.rightChild = nodeTree[2];
 
-        for (int j = 2; j < arrayNode.length; j++) {
-            NodeTree newNode = new NodeTree();
-            newNode.data = "+";
-            newNode.leftChild = parent;
-            newNode.rightChild = arrayNode[j];
-            parent = newNode;
+//        for (int i = 1; i < nodeTree.length - 1; i++) {
+//            System.out.print(userString.charAt(i));
+//            parent.leftChild = nodeTree[2 * i - 1];
+//            parent.rightChild = nodeTree[2 * i];
+//
+//        }
 
-        }
         root = parent;
     }
 
-    public void traverse(int traversType) {
-
-        switch (traversType) {
-            case 1 -> {
-                System.out.print("\nPreorder traversal: ");
-                preOrder(root);
-            }
-            case 2 -> {
-                System.out.print("\nInorder traversal: ");
-                inOrder(root);
-            }
-            case 3 -> {
-                System.out.print("\nPostorder traversal: ");
-                postOrder(root);
-            }
+    private void addChildren(NodeTree parent, int i) {
+        if (nodeTree.length > 2 * i) {
+            parent.leftChild = nodeTree[2 * i];
+            nodeTree[2 * i].displayNode();
         }
-        System.out.println("");
+        if (nodeTree.length > 2 * i + 1) {
+            parent.rightChild = nodeTree[2 * i + 1];
+            nodeTree[2 * i + 1].displayNode();
+        }
+        if (nodeTree.length > 2 * i) {
+            addChildren(parent.leftChild, 2 * i);
+            addChildren(parent.rightChild, 2 * i + 1);
+        }
     }
 
-    private void preOrder(NodeTree lclRoot) {
 
-        if (lclRoot != null) {
-            System.out.print(lclRoot.data + " ");
-            preOrder(lclRoot.leftChild);
-            preOrder(lclRoot.rightChild);
-        }
-
-    }
-
-    private void inOrder(NodeTree lclRoot) {
-
-        if (lclRoot != null) {
-            inOrder(lclRoot.leftChild);
-            System.out.print(lclRoot.data + " ");
-            inOrder(lclRoot.rightChild);
-        }
-
-    }
-
-    private void postOrder(NodeTree lclRoot) {
-
-        if (lclRoot != null) {
-            postOrder(lclRoot.leftChild);
-            postOrder(lclRoot.rightChild);
-            System.out.print(lclRoot.data + " ");
-        }
-
-    }
-
-    public void displayTree() {
-
+    void displayTree() {
         Stack<NodeTree> nodeTreeStack = new Stack<NodeTree>();
 
         nodeTreeStack.push(root);
@@ -132,9 +102,58 @@ class StringTree {
 
     }
 
+
+    void traverse(int cursor) {
+
+        switch (cursor) {
+            case 1 -> {
+                System.out.print("\nPreorder traversal: ");
+                preOrder(root);
+            }
+            case 2 -> {
+                System.out.print("\nInorder traversal: ");
+                inOrder(root);
+            }
+            case 3 -> {
+                System.out.print("\nPostorder traversal: ");
+                postOrder(root);
+            }
+        }
+        System.out.println("");
+    }
+
+    private void preOrder(NodeTree lclRoot) {
+
+        if (lclRoot != null) {
+            System.out.print(lclRoot.data + " ");
+            preOrder(lclRoot.leftChild);
+            preOrder(lclRoot.rightChild);
+        }
+
+    }
+
+    private void inOrder(NodeTree lclRoot) {
+
+        if (lclRoot != null) {
+            inOrder(lclRoot.leftChild);
+            System.out.print(lclRoot.data + " ");
+            inOrder(lclRoot.rightChild);
+        }
+
+    }
+
+    private void postOrder(NodeTree lclRoot) {
+
+        if (lclRoot != null) {
+            postOrder(lclRoot.leftChild);
+            postOrder(lclRoot.rightChild);
+            System.out.print(lclRoot.data + " ");
+        }
+
+    }
 }
 
-class BinaryTreeApp {
+class BinaryCompleteTreeApp {
 
     public static void main(String[] args) throws IOException {
 
@@ -144,7 +163,7 @@ class BinaryTreeApp {
 
         String userString = getString();
 
-        StringTree stringTree = new StringTree(userString);
+        BinaryCompleteTree stringTree = new BinaryCompleteTree(userString);
 
 
         while (true) {
@@ -191,3 +210,4 @@ class BinaryTreeApp {
     }
 
 }
+
