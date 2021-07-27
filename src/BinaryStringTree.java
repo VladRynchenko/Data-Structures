@@ -187,9 +187,6 @@ class BinaryTreeApp {
 
     }
 
-
-    // method to get first character from user input
-
     public static char getChar() throws IOException {
 
         String userChar = getString();
