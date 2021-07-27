@@ -23,9 +23,6 @@ class StringTree {
             arrayNode[i].data = String.valueOf(dataString.charAt(i));
         }
 
-
-//Code to include "+" nodes and its children iteratively
-
         NodeTree parent = new NodeTree();
 
         parent.data = "+";
@@ -91,9 +88,6 @@ class StringTree {
         }
 
     }
-
-
-    // method to display tree nodes
 
     public void displayTree() {
 
