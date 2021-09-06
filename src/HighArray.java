@@ -40,7 +40,7 @@ public class HighArray {
 
         {
             for (int j = 0; j < nElems; j++) // for each element,
-                System.out.print(a[j] + " "); // display it System.out.println(“”);
+                System.out.print(a[j] + " "); // display it System.out.println("”);
         }
         System.out.println("");
     }

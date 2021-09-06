@@ -20,7 +20,7 @@ public class HighArrayApp {
         if (arr.find(searchKey))
             System.out.println("Found " + searchKey);
         else
-            System.out.println("Can’t find " + searchKey);
+            System.out.println("Can't find " + searchKey);
 
         arr.delete(00);
         arr.delete(55);

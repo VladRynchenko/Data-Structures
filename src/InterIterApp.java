@@ -33,7 +33,7 @@ public class InterIterApp {
                         iter1.nextLink();
                     else
 
-                        System.out.println("Can’t go to next link");
+                        System.out.println("Can't go to next link");
                     break;
                 case 'g': // get current item
                     if (!theList.isEmpty()) {
