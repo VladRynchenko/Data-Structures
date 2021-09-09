@@ -2,7 +2,7 @@ import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
 
-var size: Int = 0
+private var size: Int = 0
 
 @Throws(IOException::class)
 fun main(args: Array<String>) {
