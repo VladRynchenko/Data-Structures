@@ -40,7 +40,7 @@ class HashTable {
     public void insert(DataItem item) {
         int key = item.getKey();
         int hashVal = hashFunc(key);
-        for (int counter = 0; hashArray[hashVal] != null && hashArray[hashVal].getKey() != -1; counter++) {
+        for (int counter = 1; hashArray[hashVal] != null && hashArray[hashVal].getKey() != -1; counter++) {
             hashVal += counter * counter;
             hashVal %= arraySize;
         }
@@ -50,7 +50,7 @@ class HashTable {
     public DataItem delete(int key) // delete a DataItem
     {
         int hashVal = hashFunc(key); // hash the key
-        for (int counter = 0; hashArray[hashVal] != null; counter++) {
+        for (int counter = 1; hashArray[hashVal] != null; counter++) {
             if (hashArray[hashVal].getKey() == key) {
                 DataItem temp = hashArray[hashVal];
                 hashArray[hashVal] = nonItem;
@@ -64,7 +64,7 @@ class HashTable {
 
     public DataItem find(int key) {
         int hashVal = hashFunc(key);
-        for (int counter = 0; hashArray[hashVal] != null; counter++) {
+        for (int counter = 1; hashArray[hashVal] != null; counter++) {
             if (hashArray[hashVal].getKey() == key)
                 return hashArray[hashVal]; // yes, return item
             hashVal += counter * counter;

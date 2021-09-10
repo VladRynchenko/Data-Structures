@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 class HashingString(private val arraySize: Int) {
     class StringItem(val key: String)
 
@@ -16,11 +18,11 @@ class HashingString(private val arraySize: Int) {
         var hashVal = 0
         var pow27 = 1
         for (j in key.length - 1 downTo 0) {
-            val letter: Int = key[j].toInt() - 96
+            val letter: Int = key[j].code - 96
             hashVal += pow27 * letter
             pow27 *= 27
         }
-        return hashVal % arraySize
+        return abs(hashVal) % arraySize
     }
 
     fun insert(item: StringItem) {

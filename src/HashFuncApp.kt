@@ -19,7 +19,7 @@ fun hashFun(key: Int): Int {
     val keyDigitCount = getDigitCount(key)
     val groupSize = getDigitCount(size)
     var groupSum = 0
-    val keyString = Integer.toString(key)
+    val keyString = key.toString()
     var i = 0
     while (i < keyString.length) {
         if (i + groupSize <= keyString.length) {

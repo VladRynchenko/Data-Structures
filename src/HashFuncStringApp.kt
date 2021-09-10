@@ -4,7 +4,7 @@ import java.io.IOException
 fun main(args: Array<String>) {
 
     lateinit var aKey: String
-    lateinit var aStringItem: HashingString.StringItem
+    var aStringItem: HashingString.StringItem?
 
     print("Enter size of hash table: ")
     val size = HashTableApp.getInt()
@@ -31,12 +31,11 @@ fun main(args: Array<String>) {
             'f' -> {
                 print("Enter key value to find: ");
                 aKey = getString();
-                theHashTable.find(aKey).also {
-                    if (it != null) {
-                        aStringItem = it
-                    }
-                }
-                println("Found $aKey");
+                aStringItem = theHashTable.find(aKey);
+                if (aStringItem != null) {
+                    println("Found $aKey");
+                } else
+                    println("Could not find $aKey");
             }
             else -> print("Invalid entry\n");
         } // end switch
