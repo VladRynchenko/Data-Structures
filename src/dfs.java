@@ -99,7 +99,7 @@ class Graph {
     }
 
     public void showConnectivityTable() {
-        for (int i = 0; vertexList[i] != null; i++) {
+        for (int i = 0; i < nVerts; i++) {
             dfs(i);
             System.out.println();
         }
