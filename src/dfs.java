@@ -98,6 +98,12 @@ class Graph {
             vertexList[j].wasVisited = false;
     }
 
+    public void showConnectivityTable() {
+        for (int i = 0; vertexList[i] != null; i++) {
+            dfs(i);
+            System.out.println();
+        }
+    }
 
     public int getAdjUnvisitedVertex(int v) {
         for (int j = 0; j < nVerts; j++)
@@ -115,15 +121,12 @@ class DFSApp {
         theGraph.addVertex('D');
         theGraph.addVertex('E');
 
-        theGraph.addEdge(2, 1);
         theGraph.addEdge(1, 0);
-        theGraph.addEdge(3, 0);
-        theGraph.addEdge(4, 3);
+        theGraph.addEdge(1, 4);
+        theGraph.addEdge(0, 2);
+        theGraph.addEdge(4, 2);
+        theGraph.addEdge(3, 4);
 
-        System.out.print("Visits: ");
-        theGraph.dfs(4); // depth-first search System.out.println();
-        System.out.println();
-//        theGraph.mst();
-
+        theGraph.showConnectivityTable();
     } // end main()
 } // end class DFSApp
