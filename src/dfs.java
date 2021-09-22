@@ -110,6 +110,28 @@ class Graph {
             if (adjMat[v][j] == 1 && !vertexList[j].wasVisited) return j;
         return -1;
     }
+
+    public void displayAdjMatr() {
+        for (int k = 0; k < nVerts; k++) {
+            for (int i = 0; i < nVerts; i++) {
+                System.out.print(adjMat[k][i]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void ftc() {
+        for (int y = 0; y < nVerts; y++) {
+            for (int x = 0; x < nVerts; x++) {
+                if (adjMat[x][y] == 1)
+                    for (int z = 0; z < nVerts; z++) {
+                        if (adjMat[y][z] == 1) adjMat[x][z] = 1;
+                    }
+            }
+        }
+        System.out.println("Result: ");
+        displayAdjMatr();
+    }
 }
 
 class DFSApp {
@@ -128,5 +150,14 @@ class DFSApp {
         theGraph.addEdge(3, 4);
 
         theGraph.showConnectivityTable();
+        System.out.println();
+
+        System.out.println("Before:");
+        theGraph.displayAdjMatr();
+        System.out.println();
+
+        theGraph.ftc();
+        System.out.println();
+
     } // end main()
 } // end class DFSApp
