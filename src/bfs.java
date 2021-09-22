@@ -86,7 +86,6 @@ class GraphBFS {
             int v = getAdjUnvisitedVertex(currentVertex);
             if (v == -1) {
                 int temp = theQueue.remove();
-                theQueue.insert(temp);
             } else {
                 vertexList[v].wasVisited = true; // mark it
                 displayVertex(currentVertex);
@@ -94,6 +93,7 @@ class GraphBFS {
                 System.out.print(" ");
                 theQueue.insert(v);
             }
+            theQueue.insert(currentVertex);
         }
 
         for (int j = 0; j < nVerts; j++) vertexList[j].wasVisited = false;
@@ -144,7 +144,7 @@ class BFSApp {
         theGraph.addEdge(5, 7);
         theGraph.addEdge(5, 2);
         theGraph.addEdge(6, 8);
-        theGraph.addEdge(1, 9);
+        theGraph.addEdge(1, 4);
         theGraph.addEdge(3, 5);
         theGraph.addEdge(1, 6);
         theGraph.addEdge(2, 7);
@@ -152,8 +152,9 @@ class BFSApp {
         theGraph.addEdge(2, 8);
 
         System.out.print("Visits: ");
-        theGraph.bfs(); // breadth-first search
+//        theGraph.bfs(); // breadth-first search
         System.out.println();
+        theGraph.mst();
         theGraph.mst();
 
 
